@@ -1,0 +1,36 @@
+package Reto3.web;
+
+import Reto3.model.Reservacion;
+import Reto3.service.ReservacionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/Reservation")
+@CrossOrigin(origins="*",methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE}) //los cross para los front
+
+public class ReservacionController {
+    @Autowired
+    private ReservacionService reservacionService;
+
+    @GetMapping("/all")
+    public List<Reservacion> getReservation() {
+        return reservacionService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Reservacion> getReservation(@PathVariable("id") int idReservation) {
+        return reservacionService.getReservation(idReservation);
+    }
+
+    @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservacion save(@RequestBody Reservacion reservation) {
+        return reservacionService.save(reservation);
+    }
+
+}
