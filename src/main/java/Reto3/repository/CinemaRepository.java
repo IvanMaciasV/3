@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class CinemaRepository {
     @Autowired
-    private CinemaCrudRepository crud;
+
     private CinemaCrudRepository cinemaCrudRepository;
 
     public List<Cinema> getAll(){
