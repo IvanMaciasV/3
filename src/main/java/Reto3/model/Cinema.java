@@ -1,7 +1,10 @@
 package Reto3.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="Cinema")
@@ -15,6 +18,19 @@ public class Cinema implements Serializable {
     private Integer category;
     private String name;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name="categoryId")
+    @JsonIgnoreProperties("cinemas")
+    private Category categoria;
+
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy = "cinema")
+    @JsonIgnoreProperties({"cinema","client"})
+    private List<Message> messages;
+
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy = "cinema")
+    @JsonIgnoreProperties({"cinema","message"})
+    private List<Reservation> reservations;
 
     public Integer getId() {
         return id;
