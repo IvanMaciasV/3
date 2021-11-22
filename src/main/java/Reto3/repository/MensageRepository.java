@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-
+//Creacion del repositorio de Mensaje
 public class MensageRepository {
     @Autowired
     private MensageCrudRepository messageCrudRepository;

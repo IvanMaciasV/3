@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+// Creacion de la tabla reservacion
 @Entity
 @Table(name = "reservacion")
 public class Reservacion implements Serializable {
@@ -16,7 +16,7 @@ public class Reservacion implements Serializable {
     private Date startDate;
     private Date devolutionDate;
     private String status = "created";
-
+//relacion con la tabla cinema
     @ManyToOne
     @JoinColumn(name = "id")
     @JsonIgnoreProperties({"reservations"})

@@ -6,7 +6,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
+// Creacion de la tabla categoria
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable {
@@ -16,11 +16,11 @@ public class Categoria implements Serializable {
     private Integer id;
     private String name;
     private String description;
-
+//Relacion con la tabla cinema
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
     @JsonIgnoreProperties("category")
     private List<Cinema> cinemas;
-
+//Generacion de getter and setter
     public Integer getId() {
         return id;
     }

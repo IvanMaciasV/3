@@ -14,7 +14,7 @@ public class CinemaRepository {
     @Autowired
 
     private CinemaCrudRepository cinemaCrudRepository;
-
+    //Creacion del repositorio de Cinema
     public List<Cinema> getAll(){
         return (List<Cinema>) cinemaCrudRepository.findAll();
     }
