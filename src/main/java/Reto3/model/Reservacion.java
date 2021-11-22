@@ -22,11 +22,11 @@ public class Reservacion implements Serializable {
     @JsonIgnoreProperties({"reservations"})
     private Cinema cinema;
 
-   /** @ManyToOne
-    @JoinColumn(name="idCliente")
+    @ManyToOne
+    @JoinColumn(name="idClient")
     @JsonIgnoreProperties({"reservations","messages"})
-    private Cliente client;**/
-
+    private Cliente client;
+// Generacion de Getter y Setter
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -57,5 +57,21 @@ public class Reservacion implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+
+    public Cliente getClient() {
+        return client;
+    }
+
+    public void setClient(Cliente client) {
+        this.client = client;
     }
 }

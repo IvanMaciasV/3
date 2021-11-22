@@ -22,7 +22,7 @@ public class Cinema implements Serializable {
     private String description;
 //relacion con la tabla categoria
     @ManyToOne
-    @JoinColumn(name = "categoriaId")
+    @JoinColumn(name = "idClient")
     @JsonIgnoreProperties("cinemas")
     private Categoria category;
 //relacion con la tabla mensaje

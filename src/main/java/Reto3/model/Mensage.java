@@ -18,11 +18,13 @@ public class Mensage implements Serializable {
     @JsonIgnoreProperties({"messages", "reservations"})
     private Cinema cinema;
 
-    /**@ManyToOne
-    @JoinColumn(name="id")
+    //relacion con la tabla cliente
+    @ManyToOne
+    @JoinColumn(name="idClient")
     @JsonIgnoreProperties({"messages","reservations"})
-    private Cliente client;**/
+    private Cliente client;
 // generacion de getter y setter
+
     public Integer getIdMessage() {
         return idMessage;
     }
@@ -46,12 +48,12 @@ public class Mensage implements Serializable {
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
     }
-/**
+
     public Cliente getClient() {
         return client;
     }
 
     public void setClient(Cliente client) {
         this.client = client;
-    }**/
+    }
 }
