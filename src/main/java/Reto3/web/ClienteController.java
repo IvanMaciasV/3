@@ -1,5 +1,6 @@
 package Reto3.web;
 
+import Reto3.model.Cinema;
 import Reto3.model.Cliente;
 import Reto3.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,12 @@ public class ClienteController {
     public Cliente save(@RequestBody Cliente client) {
         return clienteService.save(client);
     }
+
+   /** @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cliente update(@RequestBody Cliente client) {return clienteService.update(client);}
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {return clienteService.deleteCliente(id);}**/
 }

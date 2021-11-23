@@ -34,4 +34,33 @@ public class CinemaService {
             }
         }
     }
+    /**
+    public Cinema update (Cinema cinema){
+        if(cinema.getId()!=null){
+            Optional<Cinema>categorias=cinemaRepository.getCinema(cinema.getId());
+            if(!categorias.isPresent()){
+                if(cinema.getDescription()!=null){
+                    cinema.get().setDescription(cinema.getDescription());
+                }
+                if(cinema.getName()!=null){
+                    cinema.get().setName(cinema.getName());
+                }
+                return cinemaRepository.save(categorias.get());
+            }else{
+                return cinema;
+            }
+        }else{
+            return cinema;
+        }
+    }
+
+    public boolean deleteCinema(int id){
+        Boolean cinemaBoolean=getCinema(id).map(cinema ->{
+            cinemaRepository.delete(cinema);
+            return true;
+        }).orElse(false);
+        return cinemaBoolean;
+    }**/
+
+
 }

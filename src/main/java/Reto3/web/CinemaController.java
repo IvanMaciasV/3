@@ -1,6 +1,7 @@
 package Reto3.web;
 
 
+import Reto3.model.Categoria;
 import Reto3.model.Cinema;
 import Reto3.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,4 +34,12 @@ public class CinemaController {
     public Cinema save(@RequestBody Cinema c){
         return cinemaService.save(c);
     }
+
+   /** @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cinema update(@RequestBody Cinema cinema) {return cinemaService.update(cinema);}
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("id") int id) {return cinemaService.deleteCinema(id);}**/
 }

@@ -1,5 +1,6 @@
 package Reto3.repository;
 
+import Reto3.model.Cinema;
 import Reto3.model.Cliente;
 import Reto3.repository.crud.ClienteCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,5 @@ public class ClienteRepository {
     public Cliente save(Cliente c){
         return clienteCrudRepository.save(c);
     }
+    public void delete(Cliente cliente) {clienteCrudRepository.delete(cliente);}
 }
