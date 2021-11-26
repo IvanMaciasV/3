@@ -17,7 +17,6 @@ public class CategoriaService {
         return categoriaRepository.getAll();
 
     }
-
     public Optional <Categoria> getCategoria(int id){
         return categoriaRepository.getCategoria(id);
     }
@@ -26,40 +25,37 @@ public class CategoriaService {
             return categoriaRepository.save(c);
         }else{
             Optional<Categoria>categoryAux=categoriaRepository.getCategoria(c.getId());
-            if(categoryAux.isPresent()) {
+            if(categoryAux.isEmpty()) {
                 return categoriaRepository.save(c);
             }else{
                 return c;
             }
         }
     }
-    /**
-    public Categoria update (Categoria categoria){
-        if(categoria.getId()!=null){
-            Optional<Categoria>categorias=categoriaRepository.getCategoria(categoria.getId());
-            if(!categorias.isPresent()){
-                if(categoria.getDescription()!=null){
-                    categorias.get().setDescription(categoriaRepository.getDescription());
+
+    public Categoria update (Categoria c) {
+        if (c.getId() != null) {
+            Optional<Categoria> g = categoriaRepository.getCategoria(c.getId());
+            if (!g.isEmpty()) {
+                if (c.getName() != null) {
+                    g.get().setName(c.getName());
                 }
-                if(categoria.getName()!=null){
-                    categorias.get().setName(categoria.getName());
+                if (c.getDescription() != null) {
+                    g.get().setDescription(c.getDescription());
                 }
-                return categoriaRepository.save(categorias.get());
-            }else{
-                return categoria;
+                return categoriaRepository.save(g.get());
+            } else {
+                return c;
             }
-        }else{
-            return categoria;
+        } else {
+            return c;
         }
     }
-
     public boolean deleteCategory(int id){
-        Boolean categoriaBoolean=getCategoria(id).map(category ->{
+        Boolean b=getCategoria(id).map(category ->{
             categoriaRepository.delete(category);
             return true;
         }).orElse(false);
-        return categoriaBoolean;
-    }**/
-
-
+        return b;
+    }
 }

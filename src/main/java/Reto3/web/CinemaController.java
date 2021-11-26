@@ -35,11 +35,11 @@ public class CinemaController {
         return cinemaService.save(c);
     }
 
-   /** @PutMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cinema update(@RequestBody Cinema cinema) {return cinemaService.update(cinema);}
+    public Cinema update(@RequestBody Cinema c) {return cinemaService.update(c);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id) {return cinemaService.deleteCinema(id);}**/
+    public boolean deleteCinema(@PathVariable("id") int id) {return cinemaService.deleteCinema(id);}
 }

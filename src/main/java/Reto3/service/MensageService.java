@@ -27,7 +27,7 @@ public class MensageService {
 
         }else{
             Optional<Mensage>messageAux=messageRepository.getMessage(message.getIdMessage());
-            if(messageAux.isPresent()) {
+            if(messageAux.isEmpty()) {
                 return messageRepository.save(message);
             }else{
                 return message;
@@ -35,31 +35,29 @@ public class MensageService {
 
         }
     }
-  /**  public Mensage update (Mensage message){
-        if(message.getId()!=null){
-            Optional<Mensage>categorias=messageRepository.getMessage(message.getId());
-            if(!categorias.isPresent()){
-                if(message.getDescription()!=null){
-                    categorias.get().setDescription(message.getDescription());
+    public Mensage update (Mensage m){
+        if(m.getIdMessage()!=null){
+            Optional<Mensage>g=messageRepository.getMessage(m.getIdMessage());
+            if(!g.isEmpty()){
+                if(m.getMessageText()!=null){
+                    g.get().setMessageText(m.getMessageText());
                 }
-                if(message.getName()!=null){
-                    categorias.get().setName(message.getName());
-                }
-                return messageRepository.save(categorias.get());
+
+                return messageRepository.save(g.get());
             }else{
-                return message;
+                return m;
             }
         }else{
-            return message;
+            return m;
         }
     }
 
     public boolean deleteMensage(int id){
-        Boolean mensageBoolean=getMessage(id).map(category ->{
-            messageRepository.delete(category);
+        Boolean dm=getMessage(id).map(mensage ->{
+            messageRepository.delete(mensage);
             return true;
         }).orElse(false);
-        return mensageBoolean;
-    }**/
+        return dm;
+    }
 
 }

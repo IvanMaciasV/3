@@ -1,7 +1,6 @@
 package Reto3.repository;
 
 import Reto3.model.Categoria;
-import Reto3.model.Cinema;
 import Reto3.repository.crud.CategoriaCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,5 +17,5 @@ public class CategoriaRepository {
     public List<Categoria> getAll(){return (List<Categoria>) categoriaCrudRepository.findAll();}
     public Optional<Categoria> getCategoria(int id){return categoriaCrudRepository.findById(id);}
     public Categoria save(Categoria category){return categoriaCrudRepository.save(category);}
-    public void delete(Categoria categoria) {categoriaCrudRepository.delete(categoria);}
+    public void delete(Categoria category) {categoriaCrudRepository.delete(category);}
 }

@@ -34,12 +34,12 @@ public class CategoriaController {
     public Categoria save(@RequestBody Categoria category) {
         return categoriaService.save(category);
     }
-/**
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Categoria update(@RequestBody Categoria category) {return categoriaService.update(category);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int idCategory) {return categoriaService.deleteCategory(idCategory);}**/
+    public boolean deleteCategoria(@PathVariable("id") int idCategory) {return categoriaService.deleteCategory(idCategory);}
 }

@@ -32,13 +32,13 @@ public class MensageController {
     public Mensage save(@RequestBody Mensage message) {
         return mensageService.save(message);
     }
-/**
+
     @PutMapping("/update")
     @ResponseStatus (HttpStatus.CREATED)
     public Mensage update (@RequestBody Mensage message){return mensageService.update(message);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus (HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int idMessage){return mensageService.deleteMensage(idMessage);}**/
+    public boolean deleteMensage(@PathVariable("id") int idMessage){return mensageService.deleteMensage(idMessage);}
 
 }

@@ -25,39 +25,45 @@ public class ClienteService {
             return clienteRepository.save(c);
         }else {
             Optional<Cliente> clienteAux=clienteRepository.getCliente(c.getIdClient());
-            if(clienteAux.isPresent()){
+            if(clienteAux.isEmpty()){
                 return clienteRepository.save(c);
             }else{
                 return c;
             }
         }
     }
-/**
-    public Cliente update (Cliente cliente){
-        if(cliente.getIdCliente()!=null){
-            Optional<Cliente>categorias=clienteRepository.getCliente(cliente.getIdCliente());
-            if(!categorias.isPresent()){
-                if(cliente.getDescription()!=null){
-                    categorias.get().setDescription(cliente.getDescription());
+
+    public Cliente update (Cliente c){
+        if(c.getIdClient()!=null){
+            Optional<Cliente>g=clienteRepository.getCliente(c.getIdClient());
+            if(!g.isEmpty()){
+                if(c.getEmail()!=null){
+                    g.get().setEmail(c.getEmail());
                 }
-                if(cliente.getName()!=null){
-                    categorias.get().setName(cliente.getName());
+                if(c.getName()!=null){
+                    g.get().setName(c.getName());
                 }
-                return clienteRepository.save(categorias.get());
+                if(c.getPassword()!=null){
+                    g.get().setPassword(c.getPassword());
+                }
+                if(c.getAge()!=null){
+                    g.get().setAge(c.getAge());
+                }
+                return clienteRepository.save(g.get());
             }else{
-                return cliente;
+                return c;
             }
         }else{
-            return cliente;
+            return c;
         }
     }
 
-    public boolean deleteCliente(int id){
-        Boolean clienteBoolean=getCliente(id).map(category ->{
-            clienteRepository.delete(category);
+    public boolean deleteClient(int id){
+        Boolean d=getCliente(id).map(cliente ->{
+            clienteRepository.delete(cliente);
             return true;
         }).orElse(false);
-        return clienteBoolean;
-    }**/
+        return d;
+    }
 
 }

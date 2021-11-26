@@ -29,7 +29,7 @@ public class ReservacionService {
 
         }else{
             Optional<Reservacion>reservationAux=reservationRepository.getReservation(reservation.getIdReservation());
-            if(reservationAux.isPresent()) {
+            if(reservationAux.isEmpty()) {
                 return reservationRepository.save(reservation);
             }else{
                 return reservation;
@@ -37,32 +37,32 @@ public class ReservacionService {
 
         }
     }
-    /**
-    public Reservacion update (Reservacion reservacion){
-        if(reservacion.getId()!=null){
-            Optional<Reservacion>categorias=reservationRepository.getReservation(reservacion.getId());
-            if(!categorias.isPresent()){
-                if(reservacion.getDescription()!=null){
-                    categorias.get().setDescription(reservacion.getDescription());
+
+    public Reservacion update (Reservacion r){
+        if(r.getIdReservation()!=null){
+            Optional<Reservacion>g=reservationRepository.getReservation(r.getIdReservation());
+            if(!g.isEmpty()){
+                if(r.getStartDate()!=null){
+                    g.get().setStartDate(r.getStartDate());
                 }
-                if(reservacion.getName()!=null){
-                    categorias.get().setName(reservacion.getName());
+                if(r.getDevolutionDate()!=null){
+                    g.get().setDevolutionDate(r.getDevolutionDate());
                 }
-                return reservationRepository.save(categorias.get());
+                return reservationRepository.save(g.get());
             }else{
-                return reservacion;
+                return r;
             }
         }else{
-            return reservacion;
+            return r;
         }
     }
 
     public boolean deleteReservation(int id){
-        Boolean categoriaBoolean=getReservation(id).map(category ->{
-            reservationRepository.delete(category);
+        Boolean d=getReservation(id).map(reservacion ->{
+            reservationRepository.delete(reservacion);
             return true;
         }).orElse(false);
-        return categoriaBoolean;
-    }**/
+        return d;
+    }
 
 }

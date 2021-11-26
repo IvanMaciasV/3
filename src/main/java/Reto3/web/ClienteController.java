@@ -35,11 +35,11 @@ public class ClienteController {
         return clienteService.save(client);
     }
 
-   /** @PutMapping("/update")
+    @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente update(@RequestBody Cliente client) {return clienteService.update(client);}
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id) {return clienteService.deleteCliente(id);}**/
+    public boolean deleteClient(@PathVariable("id") int id) {return clienteService.deleteClient(id);}
 }
