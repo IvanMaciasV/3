@@ -26,7 +26,7 @@ public class Cliente implements Serializable {
     @JsonIgnoreProperties("client")
     private List<Reservacion> reservations;
 
-    private String score ;
+    //private String score ;
 
     public Integer getIdClient() {
         return idClient;
@@ -83,12 +83,12 @@ public class Cliente implements Serializable {
     public void setReservations(List<Reservacion> reservations) {
         this.reservations = reservations;
     }
-
+/**
     public String getScore() {
         return score;
     }
 
     public void setScore(String score) {
         this.score = score;
-    }
+    }**/
 }
