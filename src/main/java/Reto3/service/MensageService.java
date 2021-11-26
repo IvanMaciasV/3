@@ -53,11 +53,11 @@ public class MensageService {
     }
 
     public boolean deleteMensage(int id){
-        Boolean dm=getMessage(id).map(mensage ->{
+        Boolean d=getMessage(id).map(mensage ->{
             messageRepository.delete(mensage);
             return true;
         }).orElse(false);
-        return dm;
+        return d;
     }
 
 }
